@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio | Diego Matricardi</title>
+  <link rel="icon" href="./img/20230902_220824.jpg">
+  <meta name="description" content="Portfólio de Diego Matricardi Desenvolvedor Full-Stack, HTML, CSS, JavaScript, Angular, .NET, Java, React, Node.js">
+  <meta name="keywords" content="Portfólio, Desenvolvedor Full-Stack, Diego Matricardi, HTML, CSS, JavaScript, Angular, .NET, Java, React, Node.js">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init({ duration: 800, once: true });
+    });
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="bg-gray-950 text-gray-100 font-sans selection:bg-cyan-500 selection:text-white transition-colors duration-300">
+  <nav class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md shadow-lg z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
+      <a href="#inicio" class="text-cyan-400 font-bold text-xl">Diego Matricardi.</a>
+      <ul class="hidden md:flex gap-10 text-lg">
+        <li><a href="#inicio" class="hover:text-cyan-400 transition">Início</a></li>
+        <li><a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a></li>
+        <li><a href="#habilidades" class="hover:text-cyan-400 transition">Habilidades</a></li>
+        <li><a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a></li>
+        <li><a href="#contato" class="hover:text-cyan-400 transition">Contato</a></li>
+      </ul>
+      <button id="menu-toggle" class="md:hidden text-cyan-400 text-2xl">
+        <i class="ph ph-list"></i>
+      </button>
+    </div>
+    <ul id="mobile-menu" class="hidden flex-col gap-4 text-center py-4 text-lg md:hidden bg-gray-900/95">
+      <li><a href="#inicio" class="hover:text-cyan-400 transition">Início</a></li>
+      <li><a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a></li>
+      <li><a href="#habilidades" class="hover:text-cyan-400 transition">Habilidades</a></li>
+      <li><a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a></li>
+      <li><a href="#contato" class="hover:text-cyan-400 transition">Contato</a></li>
+    </ul>
+  </nav>
+
+  <section id="inicio" class="flex flex-col justify-center items-center text-center min-h-screen gap-5 px-6 pt-24 bg-gradient-to-b from-gray-900 via-gray-950 to-black">
+    <img src="./img/20230902_220824.jpg" alt="Foto de perfil" 
+      class="w-48 h-48 rounded-full object-cover border-4 border-cyan-400 shadow-[0_0_30px_-5px_rgba(6,182,212,0.5)]" 
+      data-aos="zoom-in">
+    <h1 class="text-4xl md:text-5xl font-bold text-cyan-400" data-aos="fade-up">Diego Matricardi</h1>
+    <p class="text-xl text-gray-300" data-aos="fade-up" data-aos-delay="100">Desenvolvedor Full-Stack</p>
+    <a href="#contato" 
+       class="mt-4 bg-cyan-500 text-white px-6 py-2 rounded-full text-lg font-medium hover:bg-cyan-400 transition"
+       data-aos="fade-up" data-aos-delay="200">Fale comigo</a>
+  </section>
+
+  <section id="sobre" class="py-24 bg-gray-900 px-6">
+  <h2 class="text-3xl md:text-4xl font-semibold text-center mb-10 text-cyan-400" data-aos="fade-down">Sobre Mim</h2>
+  <div class="max-w-3xl mx-auto bg-gray-800/60 rounded-xl shadow-xl p-8 backdrop-blur-sm" data-aos="fade-up">
+    <p class="text-center text-lg leading-relaxed text-gray-200">
+      Atualmente, sou estudante de Sistemas de Informação na Unoeste, com experiência inicial no desenvolvimento web utilizando Angular durante meu estágio acadêmico. Ao longo de um ano de atuação, adquiri não apenas conhecimento técnico, 
+      mas também compreensão da importância do trabalho colaborativo, da organização de projetos e da aplicação de boas práticas de desenvolvimento.  
+      Estou motivado a aprofundar meus conhecimentos, explorar novas tecnologias e metodologias, e contribuir de maneira criativa e eficiente em projetos complexos. 
+      Além disso, estou totalmente aberto e entusiasmado para aprender áreas ou ferramentas que ainda não domine, sempre buscando aprimorar minhas habilidades e expandir meu repertório profissional.
+    </p>
+  </div>
+</section>
+
+
+  <section id="habilidades" class="py-24 bg-gray-950 px-6">
+    <h2 class="text-3xl md:text-4xl font-semibold text-center mb-10 text-cyan-400" data-aos="fade-down">
+      Habilidades
+    </h2>
+
+    <div class="flex flex-wrap justify-center gap-6" data-aos="zoom-in">
+      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
+        <span class="text-gray-100 font-semibold mb-2">HTML</span>
+        <div class="w-full bg-gray-700 h-4 rounded-full">
+          <div class="bg-cyan-500 h-4 rounded-full w-10/12"></div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
+        <span class="text-gray-100 font-semibold mb-2">CSS</span>
+        <div class="w-full bg-gray-700 h-4 rounded-full">
+          <div class="bg-cyan-500 h-4 rounded-full w-5/12"></div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
+        <span class="text-gray-100 font-semibold mb-2">JavaScript</span>
+        <div class="w-full bg-gray-700 h-4 rounded-full">
+          <div class="bg-cyan-500 h-4 rounded-full w-7/12"></div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
+        <span class="text-gray-100 font-semibold mb-2">Angular</span>
+        <div class="w-full bg-gray-700 h-4 rounded-full">
+          <div class="bg-cyan-500 h-4 rounded-full w-5/12"></div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
+        <span class="text-gray-100 font-semibold mb-2">.NET</span>
+        <div class="w-full bg-gray-700 h-4 rounded-full">
+          <div class="bg-cyan-500 h-4 rounded-full w-3/12"></div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
+        <span class="text-gray-100 font-semibold mb-2">Java</span>
+        <div class="w-full bg-gray-700 h-4 rounded-full">
+          <div class="bg-cyan-500 h-4 rounded-full w-8/12"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos" class="py-24 px-6 bg-gray-900">
+    <h2 class="text-3xl md:text-4xl font-semibold text-center mb-10 text-cyan-400" data-aos="fade-down">Meus Projetos</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform" data-aos="fade-up">
+        <img src="./img/H2Database.jpeg" alt="Projeto H2 Database" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2 text-cyan-400">Projeto H2 Database</h3>
+          <p class="text-gray-300 text-sm">Projeto backend em Java, implementando tabelas e funções usando o banco H2.</p>
+          <a href="https://github.com/DiegoMatricardi/workshop-springboot-jpa" class="mt-3 inline-block bg-cyan-500 px-4 py-2 rounded hover:bg-cyan-400 transition">Ver Projeto</a>
+        </div>
+      </div>
+
+      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
+        <img src="./img/ProjInfoeste.jpg" alt="Projeto Infoeste" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2 text-cyan-400">Página Infoeste</h3>
+          <p class="text-gray-300 text-sm">Página de divulgação da FIPP e seus professores, desenvolvida com React e TypeScript.</p>
+          <a href="https://github.com/DiegoMatricardi/React-Infoeste-2023" class="mt-3 inline-block bg-cyan-500 px-4 py-2 rounded hover:bg-cyan-400 transition">Ver Projeto</a>
+        </div>
+      </div>
+      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
+        <img src="./img/Home.jpg" alt="Projeto Xhopii" class="w-full h-48 object-cover">
+        <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-cyan-400">Projeto Xhopii</h3>
+            <p class="text-gray-300 text-sm">
+            Sistema acadêmico de e-commerce inspirado na Shopee, desenvolvido com HTML, EJS, CSS, Express e MongoDB. Permite cadastro de produtos, clientes e enderecos.
+            </p>
+            <a href="https://github.com/DiegoMatricardi/Projeto-Xhopii" class="mt-3 inline-block bg-cyan-500 px-4 py-2 rounded hover:bg-cyan-400 transition">Ver Projeto</a>
+        </div>
+     </div>
+    </div>
+  </section>
+
+  <section id="contato" class="py-24 bg-gray-950 px-6">
+    <h2 class="text-3xl md:text-4xl font-semibold text-center mb-10 text-cyan-400" data-aos="fade-down">Contato</h2>
+    <div class="flex justify-center gap-10 text-5xl" data-aos="zoom-in">
+      <a href="https://github.com/DiegoMatricardi" target="_blank" class="hover:text-cyan-400 transition">
+        <i class="ph ph-github-logo"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/diegomatricardi/" target="_blank" class="hover:text-cyan-400 transition">
+        <i class="ph ph-linkedin-logo"></i>
+      </a>
+      <a href="mailto:diegobmatricardi@hotmail.com" class="hover:text-cyan-400 transition">
+        <i class="ph ph-envelope"></i>
+      </a>
+    </div>
+  </section>
+
+  <footer class="bg-gradient-to-r from-cyan-600 to-blue-700 py-6 text-center text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-mosaic.png')] opacity-10"></div>
+    <p class="relative z-10 font-medium">© 2025 <span class="font-bold">Diego Matricardi</span> — Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
