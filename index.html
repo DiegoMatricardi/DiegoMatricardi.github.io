@@ -1,213 +1,677 @@
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio | Diego Matricardi</title>
-  <link rel="icon" href="./img/20230902_220824.jpg">
-  <meta name="description" content="Portfólio de Diego Matricardi Desenvolvedor Full-Stack, HTML, CSS, JavaScript, Angular, .NET, Java, React, Node.js">
-  <meta name="keywords" content="Portfólio, Desenvolvedor Full-Stack, Diego Matricardi, HTML, CSS, JavaScript, Angular, .NET, Java, React, Node.js">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+    <title>Diego Matricardi | Desenvolvedor Full-Stack</title>
 
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <meta name="description" content="Portfólio de Diego Matricardi, estudante de Sistemas de Informação e desenvolvedor Full-Stack.">
+    <meta name="keywords" content="Diego Matricardi, Desenvolvedor Full-Stack, Java, JavaScript, TypeScript, React, Node.js, MySQL">
 
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="icon" href="./img/20230902_220824.jpg">
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ duration: 800, once: true });
-    });
-  </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-  <style>
-    html { scroll-behavior: smooth; }
-  </style>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#22d3ee',
+                        dark: '#080b12',
+                        surface: '#101722'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            background: #080b12;
+            color: #f1f5f9;
+        }
+
+        ::selection {
+            background: #22d3ee;
+            color: #080b12;
+        }
+
+        .glass {
+            background: rgba(16, 23, 34, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            backdrop-filter: blur(14px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #22d3ee, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glow {
+            box-shadow: 0 0 35px rgba(34, 211, 238, 0.12);
+        }
+
+        .project-card {
+            transition: all 0.35s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(34, 211, 238, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(34, 211, 238, 0.5);
+        }
+
+        .skill-progress {
+            height: 6px;
+            background: #263244;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-progress div {
+            height: 100%;
+            background: linear-gradient(90deg, #0891b2, #22d3ee);
+            border-radius: 20px;
+        }
+
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(34, 211, 238, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(34, 211, 238, 0.035) 1px, transparent 1px);
+            background-size: 45px 45px;
+        }
+
+        .section-label {
+            color: #22d3ee;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        #mobile-menu {
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-950 text-gray-100 font-sans selection:bg-cyan-500 selection:text-white transition-colors duration-300">
-  <nav class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md shadow-lg z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
-      <a href="#inicio" class="text-cyan-400 font-bold text-xl">Diego Matricardi.</a>
-      <ul class="hidden md:flex gap-10 text-lg">
-        <li><a href="#inicio" class="hover:text-cyan-400 transition">Início</a></li>
-        <li><a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a></li>
-        <li><a href="#habilidades" class="hover:text-cyan-400 transition">Habilidades</a></li>
-        <li><a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a></li>
-        <li><a href="#contato" class="hover:text-cyan-400 transition">Contato</a></li>
-      </ul>
-      <button id="menu-toggle" class="md:hidden text-cyan-400 text-2xl">
-        <i class="ph ph-list"></i>
-      </button>
-    </div>
-    <ul id="mobile-menu" class="hidden flex-col gap-4 text-center py-4 text-lg md:hidden bg-gray-900/95">
-      <li><a href="#inicio" class="hover:text-cyan-400 transition">Início</a></li>
-      <li><a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a></li>
-      <li><a href="#habilidades" class="hover:text-cyan-400 transition">Habilidades</a></li>
-      <li><a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a></li>
-      <li><a href="#contato" class="hover:text-cyan-400 transition">Contato</a></li>
-    </ul>
-  </nav>
+<body class="font-sans">
 
-  <section id="inicio" class="flex flex-col justify-center items-center text-center min-h-screen gap-5 px-6 pt-24 bg-gradient-to-b from-gray-900 via-gray-950 to-black">
-    <img src="./img/20230902_220824.jpg" alt="Foto de perfil" 
-      class="w-48 h-48 rounded-full object-cover border-4 border-cyan-400 shadow-[0_0_30px_-5px_rgba(6,182,212,0.5)]" 
-      data-aos="zoom-in">
-    <h1 class="text-4xl md:text-5xl font-bold text-cyan-400" data-aos="fade-up">Diego Matricardi</h1>
-    <p class="text-xl text-gray-300" data-aos="fade-up" data-aos-delay="100">Desenvolvedor Full-Stack</p>
-    <a href="#contato" 
-       class="mt-4 bg-cyan-500 text-white px-6 py-2 rounded-full text-lg font-medium hover:bg-cyan-400 transition"
-       data-aos="fade-up" data-aos-delay="200">Fale comigo</a>
-  </section>
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass">
+        <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-5">
 
-  <section id="sobre" class="py-24 bg-gray-900 px-6">
-  <h2 class="text-3xl md:text-4xl font-semibold text-center mb-10 text-cyan-400" data-aos="fade-down">Sobre Mim</h2>
-  <div class="max-w-3xl mx-auto bg-gray-800/60 rounded-xl shadow-xl p-8 backdrop-blur-sm" data-aos="fade-up">
-    <p class="text-center text-lg leading-relaxed text-gray-200">
-      Atualmente, sou estudante de Sistemas de Informação na Unoeste, com experiência inicial no desenvolvimento web utilizando Angular durante meu estágio acadêmico. Ao longo de um ano de atuação, adquiri não apenas conhecimento técnico, 
-      mas também compreensão da importância do trabalho colaborativo, da organização de projetos e da aplicação de boas práticas de desenvolvimento.  
-      Estou motivado a aprofundar meus conhecimentos, explorar novas tecnologias e metodologias, e contribuir de maneira criativa e eficiente em projetos complexos. 
-      Além disso, estou totalmente aberto e entusiasmado para aprender áreas ou ferramentas que ainda não domine, sempre buscando aprimorar minhas habilidades e expandir meu repertório profissional.
-    </p>
-  </div>
-</section>
+            <a href="#inicio" class="text-xl font-extrabold gradient-text">
+                Diego Matricardi<span class="text-cyan-400">.</span>
+            </a>
 
+            <ul class="hidden md:flex gap-9 text-sm text-gray-300">
+                <li><a href="#inicio" class="hover:text-cyan-400 transition">Início</a></li>
+                <li><a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a></li>
+                <li><a href="#habilidades" class="hover:text-cyan-400 transition">Habilidades</a></li>
+                <li><a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a></li>
+                <li><a href="#contato" class="hover:text-cyan-400 transition">Contato</a></li>
+            </ul>
 
-  <section id="habilidades" class="py-24 bg-gray-950 px-6">
-    <h2 class="text-3xl md:text-4xl font-semibold text-center mb-10 text-cyan-400" data-aos="fade-down">
-      Habilidades
-    </h2>
+            <a href="#contato"
+               class="hidden md:block border border-cyan-400/50 text-cyan-400 px-5 py-2 rounded-lg text-sm hover:bg-cyan-400 hover:text-gray-950 transition">
+                Vamos conversar
+            </a>
 
-    <div class="flex flex-wrap justify-center gap-6" data-aos="zoom-in">
-      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
-        <span class="text-gray-100 font-semibold mb-2">HTML</span>
-        <div class="w-full bg-gray-700 h-4 rounded-full">
-          <div class="bg-cyan-500 h-4 rounded-full w-10/12"></div>
+            <button id="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    class="md:hidden text-cyan-400 text-2xl">
+                <i class="ph ph-list"></i>
+            </button>
         </div>
-      </div>
 
-      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
-        <span class="text-gray-100 font-semibold mb-2">CSS</span>
-        <div class="w-full bg-gray-700 h-4 rounded-full">
-          <div class="bg-cyan-500 h-4 rounded-full w-5/12"></div>
-        </div>
-      </div>
+        <ul id="mobile-menu" class="hidden flex-col gap-5 text-center py-6 bg-gray-950 border-t border-gray-800 md:hidden">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
 
-      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
-        <span class="text-gray-100 font-semibold mb-2">JavaScript</span>
-        <div class="w-full bg-gray-700 h-4 rounded-full">
-          <div class="bg-cyan-500 h-4 rounded-full w-7/12"></div>
-        </div>
-      </div>
-      
-      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
-        <span class="text-gray-100 font-semibold mb-2">Express</span>
-        <div class="w-full bg-gray-700 h-4 rounded-full">
-          <div class="bg-cyan-500 h-4 rounded-full w-7/12"></div>
-        </div>
-      </div>
+    <!-- INÍCIO -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center px-6 pt-24 relative overflow-hidden hero-grid">
 
-      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
-        <span class="text-gray-100 font-semibold mb-2">MySQL</span>
-        <div class="w-full bg-gray-700 h-4 rounded-full">
-          <div class="bg-cyan-500 h-4 rounded-full w-5/12"></div>
-        </div>
-      </div>
+        <div class="absolute w-96 h-96 bg-cyan-500/10 blur-[130px] rounded-full top-20 left-[-100px]"></div>
+        <div class="absolute w-96 h-96 bg-indigo-500/10 blur-[130px] rounded-full bottom-0 right-[-100px]"></div>
 
-      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
-        <span class="text-gray-100 font-semibold mb-2">Angular</span>
-        <div class="w-full bg-gray-700 h-4 rounded-full">
-          <div class="bg-cyan-500 h-4 rounded-full w-5/12"></div>
-        </div>
-      </div>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-16 relative z-10">
 
-      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
-        <span class="text-gray-100 font-semibold mb-2">.NET</span>
-        <div class="w-full bg-gray-700 h-4 rounded-full">
-          <div class="bg-cyan-500 h-4 rounded-full w-3/12"></div>
-        </div>
-      </div>
+            <div data-aos="fade-right">
 
-      <div class="flex flex-col items-center bg-gray-800 rounded-xl p-4 hover:scale-105 transition w-40">
-        <span class="text-gray-100 font-semibold mb-2">Java</span>
-        <div class="w-full bg-gray-700 h-4 rounded-full">
-          <div class="bg-cyan-500 h-4 rounded-full w-8/12"></div>
-        </div>
-      </div>
-    </div>
-  </section>
+                <p class="section-label mb-5">
+                    Olá, mundo! Eu sou
+                </p>
 
-  <section id="projetos" class="py-24 px-6 bg-gray-900">
-    <h2 class="text-3xl md:text-4xl font-semibold text-center mb-10 text-cyan-400" data-aos="fade-down">Meus Projetos</h2>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                    Diego <br>
+                    <span class="gradient-text">Matricardi.</span>
+                </h1>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform" data-aos="fade-up">
-        <img src="./img/H2Database.jpeg" alt="Projeto H2 Database" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2 text-cyan-400">Projeto H2 Database</h3>
-          <p class="text-gray-300 text-sm">Projeto backend em Java, implementando tabelas e funções usando o banco H2.</p>
-          <a href="https://github.com/DiegoMatricardi/workshop-springboot-jpa" class="mt-3 inline-block bg-cyan-500 px-4 py-2 rounded hover:bg-cyan-400 transition">Ver Projeto</a>
-        </div>
-      </div>
+                <h2 class="text-xl md:text-2xl text-gray-300 mb-6">
+                    Desenvolvedor <span class="text-cyan-400">Full-Stack</span>
+                </h2>
 
-      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
-        <img src="./img/ProjInfoeste.jpg" alt="Projeto Infoeste" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2 text-cyan-400">Página Infoeste</h3>
-          <p class="text-gray-300 text-sm">Página de divulgação da FIPP e seus professores, desenvolvida com React e TypeScript.</p>
-          <a href="https://github.com/DiegoMatricardi/React-Infoeste-2023" class="mt-3 inline-block bg-cyan-500 px-4 py-2 rounded hover:bg-cyan-400 transition">Ver Projeto</a>
+                <p class="text-gray-400 leading-relaxed max-w-lg mb-8">
+                    Estudante de Sistemas de Informação, apaixonado por tecnologia,
+                    desenvolvimento de software e criação de soluções.
+                    Sempre explorando novas ferramentas e transformando ideias em projetos.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+
+                    <a href="#projetos"
+                       class="bg-cyan-500 text-gray-950 font-bold px-7 py-3 rounded-lg hover:bg-cyan-300 transition">
+                        Explorar projetos
+                        <i class="ph ph-arrow-up-right ml-2"></i>
+                    </a>
+
+                    <a href="#contato"
+                       class="border border-gray-600 px-7 py-3 rounded-lg hover:border-cyan-400 hover:text-cyan-400 transition">
+                        Entre em contato
+                    </a>
+
+                </div>
+
+                <div class="flex gap-5 mt-10 text-2xl text-gray-400">
+
+                    <a href="https://github.com/DiegoMatricardi" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition">
+                        <i class="ph ph-github-logo"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/diegomatricardi/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition">
+                        <i class="ph ph-linkedin-logo"></i>
+                    </a>
+
+                    <a href="mailto:diegobmatricardi@hotmail.com" class="hover:text-cyan-400 transition">
+                        <i class="ph ph-envelope"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="flex justify-center" data-aos="zoom-in">
+
+                <div class="relative">
+
+                    <div class="absolute inset-0 bg-cyan-400/20 blur-3xl rounded-full"></div>
+
+                    <div class="relative p-3 rounded-3xl border border-cyan-400/30 glass glow">
+
+                        <img
+                            src="./img/20230902_220824.jpg"
+                            alt="Foto de Diego Matricardi"
+                            class="w-64 h-80 md:w-80 md:h-96 object-cover rounded-2xl">
+
+                    </div>
+
+                    <div class="absolute -bottom-5 -left-8 glass px-5 py-3 rounded-xl">
+                        <p class="text-xs text-gray-400">Atualmente</p>
+                        <p class="text-sm font-semibold text-cyan-400">
+                            Sempre aprendendo.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-      </div>
-      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
-        <img src="./img/Home.jpg" alt="Projeto Xhopii" class="w-full h-48 object-cover">
-        <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2 text-cyan-400">Projeto Xhopii</h3>
-            <p class="text-gray-300 text-sm">
-            Sistema acadêmico de e-commerce inspirado na Shopee, desenvolvido com HTML, EJS, CSS, Express e MongoDB. Permite cadastro de produtos, clientes e enderecos.
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="py-28 px-6">
+
+        <div class="max-w-5xl mx-auto">
+
+            <div class="text-center mb-14" data-aos="fade-up">
+                <p class="section-label mb-3">Conheça minha trajetória</p>
+                <h2 class="text-4xl font-bold">
+                    Sobre <span class="gradient-text">mim</span>
+                </h2>
+            </div>
+
+            <div class="glass rounded-2xl p-8 md:p-12 glow" data-aos="fade-up">
+
+                <p class="text-gray-300 text-lg leading-8 text-center">
+                    Sou estudante de <span class="text-cyan-400 font-semibold">Sistemas de Informação na Unoeste</span>
+                    e desenvolvedor interessado em construir soluções através da tecnologia.
+                    <br><br>
+
+                    Tive minha primeira experiência profissional com desenvolvimento web,
+                    trabalhando durante aproximadamente um ano com tecnologias como
+                    AngularJS, C# e Oracle. Essa experiência me proporcionou contato com
+                    projetos reais, organização de tarefas, trabalho em equipe e boas
+                    práticas de desenvolvimento.
+                    <br><br>
+
+                    Atualmente, continuo expandindo meus conhecimentos em diferentes
+                    tecnologias, especialmente no desenvolvimento Full-Stack, explorando
+                    linguagens, frameworks, bancos de dados e arquitetura de software.
+                    <br><br>
+
+                    Meu objetivo é evoluir constantemente como desenvolvedor,
+                    participar de projetos desafiadores e criar soluções que realmente
+                    façam a diferença.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="py-28 px-6 bg-[#0c111b]">
+
+        <div class="max-w-6xl mx-auto">
+
+            <div class="text-center mb-16" data-aos="fade-up">
+
+                <p class="section-label mb-3">Tecnologias e ferramentas</p>
+
+                <h2 class="text-4xl font-bold">
+                    Minhas <span class="gradient-text">habilidades</span>
+                </h2>
+
+                <p class="text-gray-400 mt-4">
+                    Tecnologias que venho estudando e utilizando nos meus projetos.
+                </p>
+
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+
+                <!-- HTML -->
+                <div class="skill-card glass rounded-xl p-6" data-aos="fade-up">
+                    <i class="ph ph-file-html text-4xl text-orange-400"></i>
+                    <h3 class="font-bold mt-4 mb-4">HTML</h3>
+                    <div class="skill-progress"><div style="width:83%"></div></div>
+                    <p class="text-xs text-gray-500 mt-2">83%</p>
+                </div>
+
+                <!-- CSS -->
+                <div class="skill-card glass rounded-xl p-6" data-aos="fade-up">
+                    <i class="ph ph-file-css text-4xl text-blue-400"></i>
+                    <h3 class="font-bold mt-4 mb-4">CSS</h3>
+                    <div class="skill-progress"><div style="width:42%"></div></div>
+                    <p class="text-xs text-gray-500 mt-2">42%</p>
+                </div>
+
+                <!-- JAVASCRIPT -->
+                <div class="skill-card glass rounded-xl p-6" data-aos="fade-up">
+                    <i class="ph ph-file-js text-4xl text-yellow-400"></i>
+                    <h3 class="font-bold mt-4 mb-4">JavaScript</h3>
+                    <div class="skill-progress"><div style="width:58%"></div></div>
+                    <p class="text-xs text-gray-500 mt-2">58%</p>
+                </div>
+
+                <!-- TYPESCRIPT -->
+                <div class="skill-card glass rounded-xl p-6" data-aos="fade-up">
+                    <i class="ph ph-file-ts text-4xl text-blue-500"></i>
+                    <h3 class="font-bold mt-4 mb-4">TypeScript</h3>
+                    <div class="skill-progress"><div style="width:30%"></div></div>
+                    <p class="text-xs text-gray-500 mt-2">30%</p>
+                </div>
+
+                <!-- EXPRESS -->
+                <div class="skill-card glass rounded-xl p-6" data-aos="fade-up">
+                    <i class="ph ph-gear text-4xl text-gray-300"></i>
+                    <h3 class="font-bold mt-4 mb-4">Express.js</h3>
+                    <div class="skill-progress"><div style="width:58%"></div></div>
+                    <p class="text-xs text-gray-500 mt-2">58%</p>
+                </div>
+
+                <!-- MYSQL -->
+                <div class="skill-card glass rounded-xl p-6" data-aos="fade-up">
+                    <i class="ph ph-database text-4xl text-cyan-400"></i>
+                    <h3 class="font-bold mt-4 mb-4">MySQL</h3>
+                    <div class="skill-progress"><div style="width:42%"></div></div>
+                    <p class="text-xs text-gray-500 mt-2">42%</p>
+                </div>
+
+                <!-- JAVA -->
+                <div class="skill-card glass rounded-xl p-6" data-aos="fade-up">
+                    <i class="ph ph-coffee text-4xl text-orange-300"></i>
+                    <h3 class="font-bold mt-4 mb-4">Java</h3>
+                    <div class="skill-progress"><div style="width:67%"></div></div>
+                    <p class="text-xs text-gray-500 mt-2">67%</p>
+                </div>
+
+                <!-- REACT -->
+                <div class="skill-card glass rounded-xl p-6" data-aos="fade-up">
+                    <i class="ph ph-atom text-4xl text-cyan-300"></i>
+                    <h3 class="font-bold mt-4 mb-4">React</h3>
+                    <div class="skill-progress"><div style="width:35%"></div></div>
+                    <p class="text-xs text-gray-500 mt-2">35%</p>
+                </div>
+
+            </div>
+
+            <p class="text-center text-xs text-gray-500 mt-8">
+                Os percentuais representam uma autoavaliação do meu nível de familiaridade,
+                não uma certificação técnica.
             </p>
-            <a href="https://github.com/DiegoMatricardi/Projeto-Xhopii" class="mt-3 inline-block bg-cyan-500 px-4 py-2 rounded hover:bg-cyan-400 transition">Ver Projeto</a>
+
         </div>
-     </div>
-      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="200">
-        <img src="./img/1763424034482.jpg" alt="Projeto MyBookList" class="w-full h-48 object-cover">
-        <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2 text-cyan-400">MyBookList</h3>
-            <p class="text-gray-300 text-sm">
-            Sistema para avaliar livros e mangás desenvolvido com Express, MongoDB, Docker e Vue.js. Integra a API Gemini para gerar curiosidades sobre os livros.
+
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="py-28 px-6">
+
+        <div class="max-w-6xl mx-auto">
+
+            <div class="text-center mb-16" data-aos="fade-up">
+
+                <p class="section-label mb-3">O que venho desenvolvendo</p>
+
+                <h2 class="text-4xl font-bold">
+                    Meus <span class="gradient-text">projetos</span>
+                </h2>
+
+                <p class="text-gray-400 mt-4">
+                    Alguns projetos acadêmicos e pessoais que representam minha evolução.
+                </p>
+
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- H2 DATABASE -->
+                <div class="project-card glass rounded-2xl overflow-hidden" data-aos="fade-up">
+
+                    <img src="./img/H2Database.jpeg"
+                         alt="Projeto H2 Database"
+                         class="w-full h-52 object-cover">
+
+                    <div class="p-6">
+
+                        <span class="text-xs text-cyan-400 font-semibold">JAVA / SPRING BOOT</span>
+
+                        <h3 class="text-xl font-bold mt-3 mb-3">
+                            Workshop Spring Boot
+                        </h3>
+
+                        <p class="text-gray-400 text-sm leading-6">
+                            Projeto backend em Java com Spring Boot, JPA e banco de dados H2,
+                            explorando persistência de dados e operações CRUD.
+                        </p>
+
+                        <a href="https://github.com/DiegoMatricardi/workshop-springboot-jpa"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 mt-6 text-cyan-400 hover:text-white transition">
+                            Ver projeto <i class="ph ph-arrow-up-right"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- INFOESTE -->
+                <div class="project-card glass rounded-2xl overflow-hidden" data-aos="fade-up">
+
+                    <img src="./img/ProjInfoeste.jpg"
+                         alt="Projeto Infoeste"
+                         class="w-full h-52 object-cover">
+
+                    <div class="p-6">
+
+                        <span class="text-xs text-cyan-400 font-semibold">REACT / TYPESCRIPT</span>
+
+                        <h3 class="text-xl font-bold mt-3 mb-3">
+                            Página Infoeste
+                        </h3>
+
+                        <p class="text-gray-400 text-sm leading-6">
+                            Aplicação web desenvolvida com React e TypeScript,
+                            voltada à divulgação da FIPP e de seus professores.
+                        </p>
+
+                        <a href="https://github.com/DiegoMatricardi/React-Infoeste-2023"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 mt-6 text-cyan-400 hover:text-white transition">
+                            Ver projeto <i class="ph ph-arrow-up-right"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- XHOPII -->
+                <div class="project-card glass rounded-2xl overflow-hidden" data-aos="fade-up">
+
+                    <img src="./img/Home.jpg"
+                         alt="Projeto Xhopii"
+                         class="w-full h-52 object-cover">
+
+                    <div class="p-6">
+
+                        <span class="text-xs text-cyan-400 font-semibold">NODE.JS / MONGODB</span>
+
+                        <h3 class="text-xl font-bold mt-3 mb-3">
+                            Projeto Xhopii
+                        </h3>
+
+                        <p class="text-gray-400 text-sm leading-6">
+                            Sistema acadêmico de e-commerce inspirado na Shopee,
+                            desenvolvido com HTML, EJS, CSS, Express e MongoDB.
+                            Permite cadastro de produtos, clientes e endereços.
+                        </p>
+
+                        <a href="https://github.com/DiegoMatricardi/Projeto-Xhopii"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 mt-6 text-cyan-400 hover:text-white transition">
+                            Ver projeto <i class="ph ph-arrow-up-right"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- MYBOOKLIST -->
+                <div class="project-card glass rounded-2xl overflow-hidden" data-aos="fade-up">
+
+                    <img src="./img/1763424034482.jpg"
+                         alt="Projeto MyBookList"
+                         class="w-full h-52 object-cover">
+
+                    <div class="p-6">
+
+                        <span class="text-xs text-cyan-400 font-semibold">VUE / EXPRESS / DOCKER</span>
+
+                        <h3 class="text-xl font-bold mt-3 mb-3">
+                            MyBookList
+                        </h3>
+
+                        <p class="text-gray-400 text-sm leading-6">
+                            Sistema para avaliar livros e mangás, desenvolvido
+                            com Vue.js, Express, MongoDB e Docker. Integra a API
+                            Gemini para gerar curiosidades sobre os livros.
+                        </p>
+
+                        <a href="https://github.com/DiegoMatricardi/mybooklist"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 mt-6 text-cyan-400 hover:text-white transition">
+                            Ver projeto <i class="ph ph-arrow-up-right"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-14">
+
+                <a href="https://github.com/DiegoMatricardi"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center gap-3 border border-cyan-400/40 text-cyan-400 px-7 py-3 rounded-lg hover:bg-cyan-400 hover:text-gray-950 transition">
+
+                    <i class="ph ph-github-logo text-xl"></i>
+                    Ver todos os projetos no GitHub
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="py-28 px-6 bg-[#0c111b] relative overflow-hidden">
+
+        <div class="absolute w-96 h-96 bg-cyan-500/10 blur-[120px] rounded-full left-1/2 -translate-x-1/2"></div>
+
+        <div class="max-w-3xl mx-auto text-center relative z-10" data-aos="fade-up">
+
+            <p class="section-label mb-4">Vamos criar algo juntos?</p>
+
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6">
+                Vamos conversar<span class="gradient-text">.</span>
+            </h2>
+
+            <p class="text-gray-400 leading-7 mb-10">
+                Estou aberto a oportunidades, novos desafios, projetos
+                e conexões com pessoas da área de tecnologia.
+                Entre em contato!
             </p>
-            <a href="https://github.com/DiegoMatricardi/mybooklist" class="mt-3 inline-block bg-cyan-500 px-4 py-2 rounded hover:bg-cyan-400 transition">Ver Projeto</a>
+
+            <a href="mailto:diegobmatricardi@hotmail.com"
+               class="inline-flex items-center gap-3 bg-cyan-500 text-gray-950 font-bold px-8 py-4 rounded-lg hover:bg-cyan-300 transition">
+                <i class="ph ph-envelope-simple text-xl"></i>
+                Enviar um e-mail
+            </a>
+
+            <div class="flex justify-center gap-8 mt-12 text-3xl text-gray-400">
+
+                <a href="https://github.com/DiegoMatricardi"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="GitHub"
+                   class="hover:text-cyan-400 transition">
+                    <i class="ph ph-github-logo"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/diegomatricardi/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="LinkedIn"
+                   class="hover:text-cyan-400 transition">
+                    <i class="ph ph-linkedin-logo"></i>
+                </a>
+
+                <a href="mailto:diegobmatricardi@hotmail.com"
+                   aria-label="E-mail"
+                   class="hover:text-cyan-400 transition">
+                    <i class="ph ph-envelope"></i>
+                </a>
+
+            </div>
+
         </div>
-    </div>
-    </div>
-  </section>
 
-  <section id="contato" class="py-24 bg-gray-950 px-6">
-    <h2 class="text-3xl md:text-4xl font-semibold text-center mb-10 text-cyan-400" data-aos="fade-down">Contato</h2>
-    <div class="flex justify-center gap-10 text-5xl" data-aos="zoom-in">
-      <a href="https://github.com/DiegoMatricardi" target="_blank" class="hover:text-cyan-400 transition">
-        <i class="ph ph-github-logo"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/diegomatricardi/" target="_blank" class="hover:text-cyan-400 transition">
-        <i class="ph ph-linkedin-logo"></i>
-      </a>
-      <a href="mailto:diegobmatricardi@hotmail.com" class="hover:text-cyan-400 transition">
-        <i class="ph ph-envelope"></i>
-      </a>
-    </div>
-  </section>
+    </section>
 
-  <footer class="bg-gradient-to-r from-cyan-600 to-blue-700 py-6 text-center text-white relative overflow-hidden">
-    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-mosaic.png')] opacity-10"></div>
-    <p class="relative z-10 font-medium">© 2025 <span class="font-bold">Diego Matricardi</span> — Todos os direitos reservados.</p>
-  </footer>
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-800 py-8 px-6">
 
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+
+            <a href="#inicio" class="font-bold text-lg gradient-text">
+                Diego Matricardi.
+            </a>
+
+            <p class="text-gray-500 text-sm text-center">
+                © 2026 Diego Matricardi. Todos os direitos reservados.
+            </p>
+
+            <a href="#inicio" class="text-gray-400 hover:text-cyan-400 transition text-sm">
+                Voltar ao topo ↑
+            </a>
+
+        </div>
+
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80
+        });
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+
+            const isOpen = !mobileMenu.classList.contains('hidden');
+
+            mobileMenu.classList.toggle('hidden');
+
+            menuToggle.setAttribute('aria-expanded', String(!isOpen));
+
+            menuToggle.innerHTML = isOpen
+                ? '<i class="ph ph-list"></i>'
+                : '<i class="ph ph-x"></i>';
+
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                mobileMenu.classList.add('hidden');
+
+                menuToggle.setAttribute('aria-expanded', 'false');
+
+                menuToggle.innerHTML = '<i class="ph ph-list"></i>';
+
+            });
+
+        });
+
+    </script>
+
 </body>
 </html>
